@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dbv6q0vatlrp"]
+
+[node name="Home" type="CanvasLayer" unique_id=19278350]
+
+[node name="Label" type="Label" parent="." unique_id=1661119533]
+anchors_preset = -1
+anchor_left = 0.47100002
+anchor_top = 0.34600002
+anchor_right = 0.50600004
+anchor_bottom = 0.381
+offset_left = 0.40795898
+offset_top = -0.20800781
+offset_right = 0.08795166
+offset_bottom = 0.11199951
+size_flags_horizontal = 4
+text = "home"
