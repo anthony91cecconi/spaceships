@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dvvhl1tdty1pe"]
+
+[ext_resource type="Texture2D" uid="uid://cthdtwpp03423" path="res://scenes/core/main/assets/logo.jpeg" id="1_s6640"]
+
+[node name="Main" type="CanvasLayer" unique_id=813063469]
+
+[node name="Logo" type="TextureRect" parent="." unique_id=1377111651]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_s6640")
+expand_mode = 1
