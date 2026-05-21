@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dvvhl1tdty1pe"]
 
+[ext_resource type="Script" uid="uid://dhg6fsxy8betq" path="res://scenes/core/main/main.gd" id="1_bp03x"]
 [ext_resource type="Texture2D" uid="uid://cthdtwpp03423" path="res://scenes/core/main/assets/logo.jpeg" id="1_s6640"]
 
 [node name="Main" type="CanvasLayer" unique_id=813063469]
+script = ExtResource("1_bp03x")
 
 [node name="Logo" type="TextureRect" parent="." unique_id=1377111651]
 anchors_preset = 15
@@ -12,3 +14,23 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_s6640")
 expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=624439166]
+anchors_preset = -1
+anchor_top = 0.83300006
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 0.21594238
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=307275570]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.042000003
+offset_right = 1.0
+offset_bottom = -0.21600151
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1833735397]
