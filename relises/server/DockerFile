@@ -1,0 +1,24 @@
+# Immagine base leggera
+FROM ubuntu:22.04
+
+# Dipendenze necessarie per Godot headless
+RUN apt-get update && apt-get install -y \
+    libgles2 \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Copia i file esportati da Godot
+COPY export/spaceships-server.x86_64 .
+COPY export/spaceships-server.pck .
+
+# Rendi eseguibile il binario
+RUN chmod +x spaceships-server.x86_64
+
+# Porta ping HTTP
+EXPOSE 7778
+
+# Porta gioco
+EXPOSE 7777
+
+ENTRYPOINT ["./spaceships-server.x86_64", "--headless"]
