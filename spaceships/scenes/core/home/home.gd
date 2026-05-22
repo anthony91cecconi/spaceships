@@ -3,8 +3,8 @@ extends CanvasLayer
 const GATEWAY_URL = "http://93.38.52.145:8090/servers"
 
 @onready var http_request = $HTTPRequest
-@onready var server_list = $ScrollContainer/VBoxContainer
-@onready var info_label = $Label
+@onready var server_list = $ScrollServerContainer/ServerList
+@onready var info_label = $ServerLabel
 
 func _ready():
 	info_label.text = "Ricerca server in corso..."

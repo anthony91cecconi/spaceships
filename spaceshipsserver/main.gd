@@ -24,12 +24,13 @@ func _ready():
 		"name": SERVER_NAME,
 		"ip": SERVER_IP,
 		"port": SERVER_PORT,
-		"maxPlayers": MAX_PLAYERS
+		"maxPlayers": MAX_PLAYERS,
+		"pingport" : PING_PORT
 	})
 	
 	var headers = ["Content-Type: application/json"]
 	http_request.request(GATEWAY_URL, headers, HTTPClient.METHOD_POST, body)
-	print("Registrazione al gateway in corso...")
+	D.normal("Registrazione al gateway in corso...")
 
 func _process(_delta):
 	# Ascolta le richieste di ping in arrivo
@@ -41,6 +42,6 @@ func _process(_delta):
 
 func _on_register_completed(result, response_code, headers, body):
 	if response_code == 200:
-		print("Registrato al gateway con successo!")
+		D.success("Registrato al gateway con successo!")
 	else:
-		print("Errore registrazione: ", response_code)
+		D.error("Errore registrazione: "+ str(response_code))

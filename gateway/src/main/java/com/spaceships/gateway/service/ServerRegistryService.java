@@ -37,7 +37,7 @@ public class ServerRegistryService {
 
     public GameServer registra(RegisterRequest request) {
         String id = UUID.randomUUID().toString();
-        GameServer server = new GameServer(id, request.getName(), request.getIp(), request.getPort(), request.getMaxPlayers());
+        GameServer server = new GameServer(id, request.getName(), request.getIp(), request.getPort(), request.getMaxPlayers(),request.getPingport());
         servers.put(id, server);
         log.info("Server registrato: {} ({}:{}) - id: {}", server.getName(), server.getIp(), server.getPort(), id);
         return server;
