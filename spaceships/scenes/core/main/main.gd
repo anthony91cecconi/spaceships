@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 # La versione attuale di questo specifico APK installato
-const CURRENT_VERSION = "0.0.4"
+const CURRENT_VERSION = "0.0.5"
 const VERSION_CHECK_URL = "https://raw.githubusercontent.com/anthony91cecconi/spaceships/refs/heads/main/version.json"
 
 @onready var http_request = $HTTPRequest

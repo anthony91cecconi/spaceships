@@ -51,4 +51,6 @@ func _crea_scheda(server: Dictionary):
 
 
 func _on_reload_pressed() -> void:
+	for child in server_list.get_children():
+		child.queue_free()
 	http_request.request(GATEWAY_URL)
