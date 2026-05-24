@@ -3,15 +3,20 @@ package com.spaceships.gateway.controller;
 import com.spaceships.gateway.model.GameServer;
 import com.spaceships.gateway.model.RegisterRequest;
 import com.spaceships.gateway.service.ServerRegistryService;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/servers")
 public class GatewayController {
+
+
+    private static final Logger log = (Logger) LoggerFactory.getLogger(ServerRegistryService.class);
 
     private final ServerRegistryService registryService;
 
@@ -26,6 +31,7 @@ public class GatewayController {
     // -----------------------------------------------------------
     @PostMapping("/register")
     public ResponseEntity<GameServer> register(@RequestBody RegisterRequest request) {
+        log.info("Dati ricevuti: name="+request.getName()+" ip="+request.getIp()+" port="+request.getPort()+" pingport="+request.getPingport());
         GameServer server = registryService.registra(request);
         return ResponseEntity.ok(server);
     }

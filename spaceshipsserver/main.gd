@@ -56,6 +56,7 @@ func _registrati():
 func _on_register_completed(result, response_code, headers, body):
 	if response_code == 200:
 		D.success("Registrato al gateway con successo!")
+		D.normal("Registro con: ip=" + public_ip + " port=" + str(SERVER_PORT) + " pingport=" + str(PING_PORT))
 		retry_count = 0
 	else:
 		retry_count += 1
