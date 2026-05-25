@@ -11,7 +11,7 @@ services:
       - VERSION_JSON_PATH=/config/version.json
     volumes:
       - /home/cecconi/spaceships/relises:/relises
-      - /home/cecconi/spaceships/version.json:/config/version.json:ro
+      - /home/cecconi/spaceships:/config:ro
 
   spaceships-server:
     image: localhost/spaceships-server:latest
