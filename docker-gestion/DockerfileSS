@@ -7,10 +7,10 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-COPY relises/server/spaceships-server-0.0.1.x86_64 .
-COPY relises/server/spaceships-server-0.0.1.pck .
+COPY relises/server/spaceships-server-0.0.2.x86_64 .
+COPY relises/server/spaceships-server-0.0.2.pck .
 
-RUN chmod +x spaceships-server-0.0.1.x86_64
+RUN chmod +x spaceships-server-0.0.2.x86_64
 
 EXPOSE 7777
 EXPOSE 7778

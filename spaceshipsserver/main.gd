@@ -64,6 +64,18 @@ func _on_register_completed(result, response_code, headers, body):
 func _process(_delta):
 	if tcp_server.is_connection_available():
 		var conn = tcp_server.take_connection()
-		var risposta = "HTTP/1.1 200 OK\r\nContent-Length: 2\r\n\r\nOK"
+		
+		# Svuota il buffer di ricezione
+		await get_tree().create_timer(0.1).timeout
+		if conn.get_available_bytes() > 0:
+			var _dati = conn.get_data(conn.get_available_bytes())
+		
+		# Risposta HTTP completa e corretta
+		var risposta = "HTTP/1.1 200 OK\r\n" + \
+					   "Content-Type: text/plain\r\n" + \
+					   "Connection: close\r\n" + \
+					   "Content-Length: 2\r\n\r\n" + \
+                       "OK"
+		
 		conn.put_data(risposta.to_utf8_buffer())
 		conn.disconnect_from_host()
