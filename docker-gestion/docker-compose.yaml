@@ -6,8 +6,7 @@ services:
     image: localhost/spaceships-gateway:latest
     container_name: spaceships-gateway
     restart: always
-    ports:
-      - "8080:8080"
+    network_mode: host
     volumes:
       - /home/cecconi/spaceships/relises:/relises
 
@@ -15,8 +14,6 @@ services:
     image: localhost/spaceships-server:latest
     container_name: spaceships-server
     restart: always
-    ports:
-      - "7777:7777"
-      - "7778:7778"
+    network_mode: host
     depends_on:
       - spaceships-gateway
