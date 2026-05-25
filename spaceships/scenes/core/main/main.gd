@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-const CURRENT_VERSION = "0.0.5"
+const CURRENT_VERSION = "0.0.7"
 const VERSION_CHECK_URL = "http://93.38.52.145:8090/servers/version"
 
 @onready var http_request = $HTTPRequest
@@ -12,7 +12,7 @@ var sta_scaricando = false
 
 func _ready():
 	progress_bar.visible = false
-	info_label.text = "Verifica aggiornamenti in corso..."
+	info_label.text = "Verifica aggiornamenti in corso... al gataway 93.38.52.145"
 	
 	http_request.request_completed.connect(_on_request_completed)
 	

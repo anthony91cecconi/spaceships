@@ -7,8 +7,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.InetAddress;
 import java.net.URL;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -89,8 +92,16 @@ public class ServerRegistryService {
 
     private boolean pingServer(GameServer server) {
         try {
-            String urlStr = "http://" + server.getIp() + ":" + server.getPingport() + "/ping";
-            log.info("sto pingando questo:\n "+urlStr);
+            String ipDaPingare = server.getIp();
+            
+            // Se il server è sulla stessa macchina, usa localhost
+            String myIp = InetAddress.getLocalHost().getHostAddress();
+            if (server.getIp().equals(myIp) || server.getIp().equals(getPublicIp())) {
+                ipDaPingare = "127.0.0.1";
+            }
+            
+            String urlStr = "http://" + ipDaPingare + ":" + server.getPingport() + "/ping";
+            log.info("sto pingando questo:\n " + urlStr);
             HttpURLConnection conn = (HttpURLConnection) new URL(urlStr).openConnection();
             conn.setConnectTimeout(5000);
             conn.setReadTimeout(5000);
@@ -100,6 +111,20 @@ public class ServerRegistryService {
             return responseCode == 200;
         } catch (IOException e) {
             return false;
+        }
+    }
+
+    private String getPublicIp() {
+        try {
+            HttpURLConnection conn = (HttpURLConnection) new URL("https://api.ipify.org").openConnection();
+            conn.setConnectTimeout(3000);
+            conn.setReadTimeout(3000);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String ip = reader.readLine().trim();
+            reader.close();
+            return ip;
+        } catch (IOException e) {
+            return "";
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.spaceships.gateway.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spaceships.gateway.model.GameServer;
 import com.spaceships.gateway.model.RegisterRequest;
 import com.spaceships.gateway.service.ServerRegistryService;
@@ -11,6 +12,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -22,6 +24,8 @@ import java.util.Map;
 public class GatewayController {
 
     private static final Logger log = LoggerFactory.getLogger(GatewayController.class);
+    private final String JSON_PATH = "/home/cecconi/spaceships/version.json";
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     private final ServerRegistryService registryService;
 
@@ -46,12 +50,22 @@ public class GatewayController {
     }
 
     @GetMapping("/version")
-    public ResponseEntity<Map<String, String>> getVersion() {
-        String version = "0.0.6";
-        return ResponseEntity.ok(Map.of(
-            "latest_version", version,
-            "download_url", "http://93.38.52.145:8090/servers/download/spaceships-"+version+".apk"
-        ));
+    public ResponseEntity<?> getVersion() {
+        try {
+            File jsonFile = new File(JSON_PATH);
+            
+            // Legge il file e lo mappa direttamente come Map<String, String>
+            @SuppressWarnings("unchecked")
+            Map<String, String> versionData = objectMapper.readValue(jsonFile, Map.class);
+            
+            return ResponseEntity.ok(versionData);
+            
+        } catch (IOException e) {
+            // Se il file non esiste o è corrotto, eviti il crash del server
+            return ResponseEntity.status(500).body(Map.of(
+                "error", "Impossibile leggere il file di configurazione delle versioni."
+            ));
+        }
     }
 
     @GetMapping("/download/{filename}")

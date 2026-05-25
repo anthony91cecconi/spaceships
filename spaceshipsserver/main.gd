@@ -39,7 +39,7 @@ func _registrati():
 	D.normal("Registro con: ip=" + public_ip + " port=" + str(SERVER_PORT) + " pingport=" + str(PING_PORT))
 	var body = JSON.stringify({
 		"name": SERVER_NAME,
-		"ip": "127.0.0.1",#public_ip,
+		"ip": public_ip,
 		"port": SERVER_PORT,
 		"maxPlayers": MAX_PLAYERS,
 		"pingport": PING_PORT
