@@ -1,8 +1,7 @@
 extends CanvasLayer
 
-# La versione attuale di questo specifico APK installato
 const CURRENT_VERSION = "0.0.5"
-const VERSION_CHECK_URL = "https://raw.githubusercontent.com/anthony91cecconi/spaceships/refs/heads/main/version.json"
+const VERSION_CHECK_URL = "http://93.38.52.145:8090/servers/version"
 
 @onready var http_request = $HTTPRequest
 @onready var progress_bar = $ProgressBar
@@ -49,15 +48,12 @@ func _on_request_completed(result, response_code, headers, body):
 				_avvia_gioco_normale()
 		else:
 			info_label.text = "Errore di rete. Impossibile verificare gli aggiornamenti."
-
 	else:
 		sta_scaricando = false
 		if response_code == 200:
 			info_label.text = "Download completato! Apertura installatore..."
-			
 			var percorso_salvataggio = OS.get_user_data_dir() + "/update.apk"
-			
-			OS.shell_open(ProjectSettings.globalize_path(percorso_salvataggio))
+			OS.shell_open(percorso_salvataggio)
 		else:
 			info_label.text = "Errore durante il download dell'aggiornamento. Riprova più tardi."
 			progress_bar.visible = false
@@ -68,7 +64,6 @@ func _avvia_download_automatico():
 	info_label.text = "Nuova versione trovata. Download dell'aggiornamento..."
 	
 	var percorso_salvataggio = OS.get_user_data_dir() + "/update.apk"
-	
 	http_request.set_download_file(percorso_salvataggio)
 	
 	sta_scaricando = true

@@ -1,17 +1,14 @@
 extends Node
-
 const GATEWAY_URL = "http://93.38.52.145:8090/servers/register"
 const IP_SERVICE_URL = "https://api.ipify.org"
 const SERVER_NAME = "Server Alpha"
 const SERVER_PORT = 7777
 const PING_PORT = 7778
 const MAX_PLAYERS = 100
-
-const MAX_RETRIES = 5
-const RETRY_INTERVAL = 10.0
+const MAX_RETRIES = 10
+const RETRY_INTERVAL = 5.0
 var retry_count = 0
 var public_ip = ""
-
 var tcp_server := TCPServer.new()
 var http_ip : HTTPRequest
 var http_register : HTTPRequest
@@ -19,15 +16,12 @@ var http_register : HTTPRequest
 func _ready():
 	tcp_server.listen(PING_PORT)
 	D.normal("Ping server in ascolto sulla porta " + str(PING_PORT))
-	
 	http_ip = HTTPRequest.new()
 	add_child(http_ip)
 	http_ip.request_completed.connect(_on_ip_completed)
-	
 	http_register = HTTPRequest.new()
 	add_child(http_register)
 	http_register.request_completed.connect(_on_register_completed)
-	
 	D.normal("Recupero IP pubblico...")
 	http_ip.request(IP_SERVICE_URL)
 
@@ -42,6 +36,7 @@ func _on_ip_completed(result, response_code, headers, body):
 		http_ip.request(IP_SERVICE_URL)
 
 func _registrati():
+	D.normal("Registro con: ip=" + public_ip + " port=" + str(SERVER_PORT) + " pingport=" + str(PING_PORT))
 	var body = JSON.stringify({
 		"name": SERVER_NAME,
 		"ip": public_ip,
@@ -56,7 +51,6 @@ func _registrati():
 func _on_register_completed(result, response_code, headers, body):
 	if response_code == 200:
 		D.success("Registrato al gateway con successo!")
-		D.normal("Registro con: ip=" + public_ip + " port=" + str(SERVER_PORT) + " pingport=" + str(PING_PORT))
 		retry_count = 0
 	else:
 		retry_count += 1

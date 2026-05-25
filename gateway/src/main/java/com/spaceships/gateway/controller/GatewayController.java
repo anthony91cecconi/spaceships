@@ -3,20 +3,25 @@ package com.spaceships.gateway.controller;
 import com.spaceships.gateway.model.GameServer;
 import com.spaceships.gateway.model.RegisterRequest;
 import com.spaceships.gateway.service.ServerRegistryService;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/servers")
 public class GatewayController {
 
-
-    private static final Logger log = (Logger) LoggerFactory.getLogger(ServerRegistryService.class);
+    private static final Logger log = LoggerFactory.getLogger(GatewayController.class);
 
     private final ServerRegistryService registryService;
 
@@ -24,30 +29,42 @@ public class GatewayController {
         this.registryService = registryService;
     }
 
-    // -----------------------------------------------------------
-    // Il game server si annuncia al gateway
-    // POST /servers/register
-    // Body: { "name": "Server1", "ip": "192.168.1.10", "port": 7777, "maxPlayers": 100 }
-    // -----------------------------------------------------------
     @PostMapping("/register")
     public ResponseEntity<GameServer> register(@RequestBody RegisterRequest request) {
-        log.info("Dati ricevuti: name="+request.getName()+" ip="+request.getIp()+" port="+request.getPort()+" pingport="+request.getPingport());
+        log.info("Dati ricevuti: name={} ip={} port={} pingport={}", request.getName(), request.getIp(), request.getPort(), request.getPingport());
         GameServer server = registryService.registra(request);
         return ResponseEntity.ok(server);
     }
 
-    // -----------------------------------------------------------
-    // Il client chiede la lista dei server attivi
-    // GET /servers
-    // -----------------------------------------------------------
     @GetMapping
     public ResponseEntity<Object> getServers() {
         List<GameServer> attivi = registryService.getServerAttivi();
-
         if (attivi.isEmpty()) {
             return ResponseEntity.ok(Map.of("message", "Nessun server attivo al momento. Riprova più tardi."));
         }
-
         return ResponseEntity.ok(attivi);
+    }
+
+    @GetMapping("/version")
+    public ResponseEntity<Map<String, String>> getVersion() {
+        String version = "0.0.6";
+        return ResponseEntity.ok(Map.of(
+            "latest_version", version,
+            "download_url", "http://93.38.52.145:8090/servers/download/spaceships-"+version+".apk"
+        ));
+    }
+
+    @GetMapping("/download/{filename}")
+    public ResponseEntity<Resource> download(@PathVariable String filename) throws IOException {
+        Path path = Paths.get("/relises/" + filename);
+        Resource resource = new UrlResource(path.toUri());
+        if (!resource.exists()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok()
+            .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + filename)
+            .header(HttpHeaders.CONTENT_TYPE, "application/vnd.android.package-archive")
+            .contentLength(path.toFile().length())
+            .body(resource);
     }
 }
