@@ -15,4 +15,4 @@ RUN chmod +x spaceships-server-0.0.2.x86_64
 EXPOSE 7777
 EXPOSE 7778
 
-ENTRYPOINT ["./spaceships-server-0.0.1.x86_64", "--headless"]
+ENTRYPOINT ["./spaceships-server-0.0.2.x86_64", "--headless"]
