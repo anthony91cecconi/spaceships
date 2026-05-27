@@ -1,9 +1,9 @@
-package com.rapid.gateway.controller;
+package com.rapidgateway.gateway.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rapid.gateway.model.GameServer;
-import com.rapid.gateway.model.RegisterRequest;
-import com.rapid.gateway.service.ServerRegistryService;
+import com.rapidgateway.gateway.model.GameServer;
+import com.rapidgateway.gateway.model.RegisterRequest;
+import com.rapidgateway.gateway.service.ServerRegistryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -88,5 +88,14 @@ public class GatewayController {
             .header(HttpHeaders.CONTENT_TYPE, "application/vnd.android.package-archive")
             .contentLength(path.toFile().length())
             .body(resource);
+    }
+
+    @PatchMapping("/{id}/players")
+    public ResponseEntity<?> aggiornaGiocatori(@PathVariable String id, @RequestBody Map<String, Integer> body) {
+        Integer count = body.get("currentPlayers");
+        if (count == null) return ResponseEntity.badRequest().build();
+        GameServer server = registryService.aggiornaGiocatori(id, count);
+        if (server == null) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(server);
     }
 }

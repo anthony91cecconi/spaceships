@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 D="*uid://yvl4gu5ixfoc"
+Network="*uid://caxpegud1awt7"
 
 [physics]
 

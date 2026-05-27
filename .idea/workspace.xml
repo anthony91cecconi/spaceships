@@ -1,86 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cfe74f9b-85c9-4705-8a95-5e8ded6dd231" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/docker-gestion/DockerfileSS" beforeDir="false" afterPath="$PROJECT_DIR$/docker-gestion/DockerfileSS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-gestion/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-gestion/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/spaceships/gateway/GatewayApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/spaceships/gateway/controller/GatewayController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/spaceships/gateway/model/GameServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/spaceships/gateway/model/RegisterRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/spaceships/gateway/service/ServerRegistryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/target/classes/com/spaceships/gateway/GatewayApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/classes/com/spaceships/gateway/GatewayApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/target/classes/com/spaceships/gateway/controller/GatewayController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/classes/com/spaceships/gateway/controller/GatewayController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/target/classes/com/spaceships/gateway/model/GameServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/classes/com/spaceships/gateway/model/GameServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/target/classes/com/spaceships/gateway/model/RegisterRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/classes/com/spaceships/gateway/model/RegisterRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/target/classes/com/spaceships/gateway/service/ServerRegistryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/classes/com/spaceships/gateway/service/ServerRegistryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relises/server/spaceships-server-0.0.2.sh" beforeDir="false" afterPath="$PROJECT_DIR$/relises/server/spaceships-server-0.0.2.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/areatest/icon_ship/ship.gd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/areatest/icon_ship/ship.gd.uid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/areatest/icon_ship/ship.tscn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/areatest/player_ui/player_ui.gd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/areatest/player_ui/player_ui.gd.uid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/areatest/player_ui/player_ui.tscn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/areatest/solar_system/asset/solar_system.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/areatest/solar_system/asset/solar_system.png.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/areatest/solar_system/asset/void.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/areatest/solar_system/asset/void.png.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/areatest/solar_system/solar_system.tscn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/areatest/solar_system/solar_system.tscn25579108253.tmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/areatest/solar_system/solar_system.tscn25587740882.tmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/areatest/solar_system/solar_system.tscn25595574827.tmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/areatest/solar_system/tile_map_layer.gd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/areatest/solar_system/tile_map_layer.gd.uid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/export_presets.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/icon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/icon.svg.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/project.godot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/home/assets/components/server/bk_server.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/home/assets/components/server/bk_server.png.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/home/assets/components/server/bk_server_disabled.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/home/assets/components/server/bk_server_disabled.png.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/home/assets/components/server/bk_server_hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/home/assets/components/server/bk_server_hover.png.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/home/assets/components/server/bk_server_pressed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/home/assets/components/server/bk_server_pressed.png.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/home/assets/components/server/server.gd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/home/assets/components/server/server.gd.uid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/home/assets/components/server/server.tscn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/home/home.gd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/home/home.gd.uid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/home/home.tscn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/main/assets/logo.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/main/assets/logo.jpeg.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/main/main.gd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/main/main.gd.uid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/core/main/main.tscn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/scrips/autoloads/debugs/Debugger.gd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/scrips/autoloads/debugs/Debugger.gd.uid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/scrips/autoloads/debugs/DebuggerCount.gd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceships/scenes/scrips/autoloads/debugs/DebuggerCount.gd.uid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceshipsserver/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceshipsserver/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceshipsserver/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceshipsserver/debugs/Debugger.gd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceshipsserver/debugs/Debugger.gd.uid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceshipsserver/debugs/DebuggerCount.gd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceshipsserver/debugs/DebuggerCount.gd.uid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceshipsserver/export_presets.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceshipsserver/icon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceshipsserver/icon.svg.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceshipsserver/main.gd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceshipsserver/main.gd.uid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceshipsserver/main.tscn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spaceshipsserver/project.godot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/version.json" beforeDir="false" afterPath="$PROJECT_DIR$/version.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/rapidgateway/gateway/controller/GatewayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/rapidgateway/gateway/controller/GatewayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/rapidgateway/gateway/service/ServerRegistryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/rapidgateway/gateway/service/ServerRegistryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid/areatest/player/asset/sprites/bot-left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid/areatest/player/asset/sprites/bot-left.png.import" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid/export_presets.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/rapid/export_presets.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/rapid/project.godot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid/scenes/core/home/assets/components/server/server.gd" beforeDir="false" afterPath="$PROJECT_DIR$/rapid/scenes/core/home/assets/components/server/server.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid/scenes/core/home/assets/components/server/server.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/rapid/scenes/core/home/assets/components/server/server.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid/scenes/core/home/home.gd" beforeDir="false" afterPath="$PROJECT_DIR$/rapid/scenes/core/home/home.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid/scenes/core/home/home.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/rapid/scenes/core/home/home.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid/scenes/core/main/main.gd" beforeDir="false" afterPath="$PROJECT_DIR$/rapid/scenes/core/main/main.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapidserver/main.gd" beforeDir="false" afterPath="$PROJECT_DIR$/rapidserver/main.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/relises/rapid-0.0.1.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/relises/spaceships-0.0.7.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/relises/spaceships-0.0.8.apk" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,22 +31,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="3EIXicACmREPgzizjKutXyzjZuf" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/User/Desktop/spaceships"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/spaceships&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

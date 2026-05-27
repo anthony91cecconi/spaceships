@@ -72,18 +72,6 @@ offset_left = 0.08795166
 offset_right = 1.0
 offset_bottom = 0.03199768
 
-[node name="Reload" type="Button" parent="." unique_id=1277241232]
-anchors_preset = -1
-anchor_left = 0.53400004
-anchor_top = 0.025
-anchor_right = 0.591
-anchor_bottom = 0.07300001
-offset_left = -0.16802979
-offset_top = -0.20000076
-offset_right = 0.16796875
-offset_bottom = -0.30400467
-text = "ricarica"
-
 [node name="TestButton" type="Button" parent="." unique_id=88176073]
 anchors_preset = -1
 anchor_left = 0.149
@@ -97,5 +85,4 @@ offset_bottom = 0.18399048
 text = "test area
 "
 
-[connection signal="pressed" from="Reload" to="." method="_on_reload_pressed"]
 [connection signal="pressed" from="TestButton" to="." method="_on_test_button_pressed"]

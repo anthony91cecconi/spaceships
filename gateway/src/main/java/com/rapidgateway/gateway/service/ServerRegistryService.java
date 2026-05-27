@@ -1,7 +1,7 @@
-package com.rapid.gateway.service;
+package com.rapidgateway.gateway.service;
 
-import com.rapid.gateway.model.GameServer;
-import com.rapid.gateway.model.RegisterRequest;
+import com.rapidgateway.gateway.model.GameServer;
+import com.rapidgateway.gateway.model.RegisterRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -126,5 +126,11 @@ public class ServerRegistryService {
         } catch (IOException e) {
             return "";
         }
+    }
+    public GameServer aggiornaGiocatori(String id, int count) {
+        GameServer server = servers.get(id);
+        if (server == null) return null;
+        server.setCurrentPlayers(count);
+        return server;
     }
 }

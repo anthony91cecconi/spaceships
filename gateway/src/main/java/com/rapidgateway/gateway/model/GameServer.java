@@ -1,4 +1,4 @@
-package com.rapid.gateway.model;
+package com.rapidgateway.gateway.model;
 
 import java.time.Instant;
 

@@ -14,6 +14,12 @@ func _ready():
 	info_label.text = "Ricerca server in corso..."
 	http_request.request_completed.connect(_on_request_completed)
 	http_request.request(GATEWAY_URL)
+	var timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = 5.0
+	timer.autostart = true
+	timer.timeout.connect(_aggiorna_server)
+	timer.start()
 
 func _on_request_completed(result, response_code, headers, body):
 	if response_code != 200:
@@ -35,21 +41,17 @@ func _on_request_completed(result, response_code, headers, body):
 		_crea_scheda(server)
 
 func _crea_scheda(server: Dictionary):
-	# 1. Istanzia la scena della scheda
 	var scheda = SERVER_UI_SCENE.instantiate() as ServerUI
-	
-	# 2. Passa i dati del server alla scheda tramite la funzione che abbiamo creato prima
 	scheda.setup(server)
-	
-	# 3. Aggiungi la scheda direttamente come figlia del tuo container della lista
 	server_list.add_child(scheda)
-
-
-func _on_reload_pressed() -> void:
-	for child in server_list.get_children():
-		child.queue_free()
-	http_request.request(GATEWAY_URL)
 
 
 func _on_test_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://areatest/solar_system/solar_system.tscn")
+
+func _aggiorna_server():
+	if not http_request.get_http_client_status() == HTTPClient.STATUS_DISCONNECTED:
+		return
+	for child in server_list.get_children():
+		child.queue_free()
+	http_request.request(GATEWAY_URL)

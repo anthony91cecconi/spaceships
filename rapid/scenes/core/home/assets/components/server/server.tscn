@@ -58,3 +58,5 @@ offset_top = -5.934082
 offset_right = 6.2178955
 offset_bottom = -6.1900635
 horizontal_alignment = 2
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

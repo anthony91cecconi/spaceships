@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cmb00vdptg2uj"]
+
+[ext_resource type="Script" uid="uid://r0382yn3dau1" path="res://scenes/core/lobby/lobby.gd" id="1_8rc4i"]
+
+[node name="Lobby" type="CanvasLayer" unique_id=2028043061]
+script = ExtResource("1_8rc4i")
+
+[node name="LabelGiocatori" type="Label" parent="." unique_id=1914346099]
+offset_left = 585.0
+offset_top = 270.0
+offset_right = 876.0
+offset_bottom = 383.0
