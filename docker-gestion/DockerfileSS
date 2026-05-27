@@ -7,12 +7,12 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-COPY relises/server/rapid-server-0.0.2.x86_64 .
-COPY relises/server/rapid-server-0.0.2.pck .
+COPY relises/server/rapid-server-0.0.3.x86_64 .
+COPY relises/server/rapid-server-0.0.3.pck .
 
-RUN chmod +x rapid-server-0.0.2.x86_64
+RUN chmod +x rapid-server-0.0.3.x86_64
 
 EXPOSE 7777
 EXPOSE 7778
 
-ENTRYPOINT ["./rapid-server-0.0.2.x86_64", "--headless"]
+ENTRYPOINT ["./rapid-server-0.0.3.x86_64", "--headless"]
