@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-const CURRENT_VERSION = "0.0.3"
+const CURRENT_VERSION = "0.0.5"
 const VERSION_CHECK_URL_GATEWAY = "http://93.38.52.145:8090/servers/version"
 const VERSION_CHECK_URL_GITHUB = "https://raw.githubusercontent.com/anthony91cecconi/rapid/refs/heads/main/version.json"
 
