@@ -10,8 +10,8 @@ services:
     environment:
       - VERSION_JSON_PATH=/config/version.json
     volumes:
-      - /home/cecconi/rapid/relises:/relises
-      - /home/cecconi/rapid:/config:ro
+      - /home/cecconi/spaceship/relises:/relises
+      - /home/cecconi/spaceship:/config:ro
 
   rapid-server:
     image: localhost/rapid-server:latest

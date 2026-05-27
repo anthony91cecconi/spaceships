@@ -55,4 +55,4 @@ func _aggiorna_server():
 
 
 func _on_button_pressed() -> void:
-	PlayerManager.set_player_name(edit_name.text)
+	PlayerManager.create_custom_player(edit_name.text)
