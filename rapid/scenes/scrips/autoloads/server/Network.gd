@@ -5,25 +5,35 @@ signal lobby_aggiornata(count: int)
 var _peer: ENetMultiplayerPeer = null
 
 func connetti_a_server(ip: String, port: int) -> void:
+	D.normal("Network: tento connessione a %s:%d" % [ip, port])
 	_peer = ENetMultiplayerPeer.new()
 	var err = _peer.create_client(ip, port)
+	D.debug("Network: create_client err=%d" % err)
 	if err != OK:
-		push_error("Network: impossibile connettersi a %s:%d" % [ip, port])
+		D.error("Network: impossibile connettersi a %s:%d" % [ip, port])
 		return
 	multiplayer.multiplayer_peer = _peer
-	multiplayer.connected_to_server.connect(_on_connesso)
-	multiplayer.connection_failed.connect(_on_fallito)
-	multiplayer.server_disconnected.connect(_on_server_disconnesso)
+	multiplayer.connected_to_server.connect(_on_connected)
+	multiplayer.connection_failed.connect(_on_failed)
+	multiplayer.server_disconnected.connect(_on_server_disconnected)
 
-func _on_connesso():
-	print("Network: connesso al server")
+func _on_connected():
+	# Connessione riuscita — ci presentiamo al server mandando il nostro DTO come dizionario
+	D.success("Network: connesso al server")
+	introduce_yourself.rpc_id(1, PlayerManager.player_info.from_dto_to_dict())
 
-func _on_fallito():
-	print("Network: connessione fallita")
+func _on_failed():
+	D.error("Network: connessione fallita")
 
-func _on_server_disconnesso():
-	print("Network: server disconnesso")
+func _on_server_disconnected():
+	D.debug("Network: server disconnesso")
 
+# Dichiarata anche qui ma non fa nulla sul client — serve a Godot per sapere che esiste
+@rpc("any_peer", "reliable")
+func introduce_yourself(_player_data: Dictionary):
+	pass
+
+# Il server chiama questa su tutti i client quando il numero di giocatori cambia
 @rpc("authority", "reliable")
-func aggiorna_giocatori(count: int):
+func update_players(count: int):
 	lobby_aggiornata.emit(count)

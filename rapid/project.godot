@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 D="*uid://yvl4gu5ixfoc"
 Network="*uid://caxpegud1awt7"
+PlayerManager="*uid://b731tkrrq7rrs"
 
 [physics]
 

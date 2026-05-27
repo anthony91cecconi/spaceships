@@ -5,7 +5,8 @@ const GATEWAY_URL = "http://93.38.52.145:8090/servers"
 @onready var http_request = $HTTPRequest
 @onready var server_list = $ScrollServerContainer/Control/ServerList
 @onready var info_label = $ServerLabel
-@onready var test_button = $TestButton
+
+@onready var edit_name : LineEdit = $Control/Control/LineEdit
 
 const SERVER_UI_SCENE = preload("res://scenes/core/home/assets/components/server/server.tscn")
 
@@ -45,13 +46,13 @@ func _crea_scheda(server: Dictionary):
 	scheda.setup(server)
 	server_list.add_child(scheda)
 
-
-func _on_test_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://areatest/solar_system/solar_system.tscn")
-
 func _aggiorna_server():
 	if not http_request.get_http_client_status() == HTTPClient.STATUS_DISCONNECTED:
 		return
 	for child in server_list.get_children():
 		child.queue_free()
 	http_request.request(GATEWAY_URL)
+
+
+func _on_button_pressed() -> void:
+	PlayerManager.set_player_name(edit_name.text)
