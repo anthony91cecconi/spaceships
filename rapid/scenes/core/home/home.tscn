@@ -52,31 +52,52 @@ offset_left = 0.08795166
 offset_right = 1.0
 offset_bottom = 0.03199768
 
-[node name="Control" type="VBoxContainer" parent="." unique_id=16933282]
+[node name="PlayerInfo" type="Control" parent="." unique_id=2049471747]
+layout_mode = 3
+anchor_right = 0.27100003
+anchor_bottom = 0.261
+offset_right = -0.1920166
+offset_bottom = -0.12800598
+
+[node name="ColorRect" type="ColorRect" parent="PlayerInfo" unique_id=1859611773]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.44313726, 0.44313726, 0.44313726, 0.59607846)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerInfo" unique_id=1390938820]
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.096
-anchor_top = 0.26500002
-anchor_right = 0.40300003
-anchor_bottom = 0.32700002
-offset_left = 0.40799713
-offset_top = 0.27998352
-offset_right = -0.25604248
-offset_bottom = 0.10398865
+anchor_left = 0.022000002
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.13599968
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Control" type="HBoxContainer" parent="Control" unique_id=1788760015]
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerInfo/VBoxContainer" unique_id=316632494]
 layout_mode = 2
+theme_override_constants/separation = 7
 
-[node name="Label" type="Label" parent="Control/Control" unique_id=719422939]
+[node name="PlayerName" type="Label" parent="PlayerInfo/VBoxContainer/HBoxContainer" unique_id=1334619294]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "NAME"
+text = "name : "
 
-[node name="LineEdit" type="LineEdit" parent="Control/Control" unique_id=476334315]
+[node name="PlayerName2" type="Label" parent="PlayerInfo/VBoxContainer/HBoxContainer" unique_id=1808793985]
 layout_mode = 2
-size_flags_horizontal = 3
+text = "name"
 
-[node name="Button" type="Button" parent="Control/Control" unique_id=249176723]
+[node name="HBoxContainer2" type="HBoxContainer" parent="PlayerInfo/VBoxContainer" unique_id=1430771177]
 layout_mode = 2
-text = "SUBMIT"
+theme_override_constants/separation = 7
 
-[connection signal="pressed" from="Control/Control/Button" to="." method="_on_button_pressed"]
+[node name="PlayerId" type="Label" parent="PlayerInfo/VBoxContainer/HBoxContainer2" unique_id=2050258704]
+layout_mode = 2
+text = "id :"
+
+[node name="PlayerId2" type="Label" parent="PlayerInfo/VBoxContainer/HBoxContainer2" unique_id=1003301776]
+layout_mode = 2
+text = "id"

@@ -128,4 +128,14 @@ func _start_automatic_download():
 		ignore_button.visible = true
 
 func _start_normal_game():
-	get_tree().change_scene_to_file("res://scenes/core/home/home.tscn")
+	if _auto_login():
+		get_tree().change_scene_to_file("res://scenes/core/home/home.tscn")
+		return
+	
+	get_tree().change_scene_to_file(SceneManager.LOGIN)
+
+
+
+func _auto_login() -> bool:
+	#TODO: aggiungere loggica del login automatico quando esistera il sistema di account
+	return false

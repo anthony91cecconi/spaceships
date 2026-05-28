@@ -5,13 +5,15 @@ const GATEWAY_URL = "http://93.38.52.145:8090/servers"
 @onready var http_request = $HTTPRequest
 @onready var server_list = $ScrollServerContainer/Control/ServerList
 @onready var info_label = $ServerLabel
-
-@onready var edit_name : LineEdit = $Control/Control/LineEdit
+@onready var player_name = $PlayerInfo/VBoxContainer/HBoxContainer/PlayerName2
+@onready var player_id =$PlayerInfo/VBoxContainer/HBoxContainer2/PlayerId2
 
 const SERVER_UI_SCENE = preload("res://scenes/core/home/assets/components/server/server.tscn")
 
 
 func _ready():
+	player_name.text = PlayerManager.player_info.player_name
+	player_id.text = PlayerManager.player_info.player_id
 	info_label.text = "Ricerca server in corso..."
 	http_request.request_completed.connect(_on_request_completed)
 	http_request.request(GATEWAY_URL)
@@ -52,7 +54,3 @@ func _aggiorna_server():
 	for child in server_list.get_children():
 		child.queue_free()
 	http_request.request(GATEWAY_URL)
-
-
-func _on_button_pressed() -> void:
-	PlayerManager.create_custom_player(edit_name.text)

@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://deygnfql8kdpd"]
+
+[ext_resource type="Script" uid="uid://hid4tlib4f81" path="res://scenes/core/login/login.gd" id="1_ht4v8"]
+[ext_resource type="Texture2D" uid="uid://b454kd3wkhyxi" path="res://scenes/core/login/assets/login.png" id="1_vc868"]
+
+[node name="Login" type="CanvasLayer" unique_id=1381712519]
+script = ExtResource("1_ht4v8")
+
+[node name="Login" type="TextureRect" parent="." unique_id=234437129]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vc868")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=988132753]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = 38.0
+offset_right = -45.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Custom" type="Control" parent="HBoxContainer" unique_id=1303706778]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Custom" unique_id=1240346092]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25490198, 0.25490198, 0.25490198, 0.3764706)
+
+[node name="Label" type="Label" parent="HBoxContainer/Custom" unique_id=145024350]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Custom" unique_id=1363454027]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -274.5
+offset_bottom = 274.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/Custom/VBoxContainer" unique_id=2005454727]
+layout_mode = 2
+text = "CREA PLAYER OCCASIONALE"
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/Custom/VBoxContainer" unique_id=213201874]
+layout_mode = 2
+placeholder_text = "NAME"
+alignment = 1
+max_length = 10
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Button" type="Button" parent="HBoxContainer/Custom/VBoxContainer" unique_id=1583444769]
+layout_mode = 2
+text = "SALVA"
+
+[node name="ErrorLabel1" type="Label" parent="HBoxContainer/Custom/VBoxContainer" unique_id=1952208530]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7254902, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="Login" type="Control" parent="HBoxContainer" unique_id=2116661688]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Login" unique_id=909318653]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25490198, 0.25490198, 0.25490198, 0.3764706)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Login" unique_id=467790814]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="HBoxContainer/Login/VBoxContainer" unique_id=860447026]
+layout_mode = 2
+text = "LOGIN
+"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/Login/VBoxContainer" unique_id=1000411085]
+layout_mode = 2
+text = "NESSUN SERVIZIO DISPONIBILE"
+horizontal_alignment = 1
+
+[connection signal="text_change_rejected" from="HBoxContainer/Custom/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_change_rejected"]
+[connection signal="text_changed" from="HBoxContainer/Custom/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="pressed" from="HBoxContainer/Custom/VBoxContainer/Button" to="." method="_on_button_pressed"]
