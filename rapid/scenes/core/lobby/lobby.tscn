@@ -26,8 +26,11 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PlayerList" type="Control" parent="HBoxContainer/ScrollContainer" unique_id=1055811845]
+[node name="PlayerList" type="VBoxContainer" parent="HBoxContainer/ScrollContainer" unique_id=1025093357]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
 [node name="Control" type="VBoxContainer" parent="HBoxContainer" unique_id=1397189417]
 layout_mode = 2
