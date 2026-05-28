@@ -1,12 +1,42 @@
 [gd_scene format=3 uid="uid://cmb00vdptg2uj"]
 
 [ext_resource type="Script" uid="uid://r0382yn3dau1" path="res://scenes/core/lobby/lobby.gd" id="1_8rc4i"]
+[ext_resource type="Texture2D" uid="uid://cydg0ci1hjlme" path="res://scenes/core/lobby/assets/Lobby.png" id="2_81j4r"]
 
 [node name="Lobby" type="CanvasLayer" unique_id=2028043061]
 script = ExtResource("1_8rc4i")
 
-[node name="LabelGiocatori" type="Label" parent="." unique_id=1914346099]
-offset_left = 585.0
-offset_top = 270.0
-offset_right = 876.0
-offset_bottom = 383.0
+[node name="Lobby" type="TextureRect" parent="." unique_id=514068547]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_81j4r")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2006020436]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer" unique_id=1099615649]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayerList" type="Control" parent="HBoxContainer/ScrollContainer" unique_id=1055811845]
+layout_mode = 2
+
+[node name="Control" type="VBoxContainer" parent="HBoxContainer" unique_id=1397189417]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="HBoxContainer/Control" unique_id=1143000436]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Chat" type="Control" parent="HBoxContainer/Control" unique_id=453201194]
+layout_mode = 2
+size_flags_vertical = 3

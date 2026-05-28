@@ -42,12 +42,14 @@ func _on_player_connected(id: int):
 
 func _on_player_disconnected(id: int):
 	# Recuperiamo il nome prima di rimuoverlo, utile per il log
-	var name = players[id].player_name if players.has(id) else "sconosciuto"
+	var pname = players[id].player_name if players.has(id) else "sconosciuto"
 	players.erase(id)
 	connected_players -= 1
-	D.normal("Disconnesso enet_id=%d (%s) — totale=%d" % [id, name, connected_players])
+	D.normal("Disconnesso enet_id=%d (%s) — totale=%d" % [id, pname, connected_players])
 	update_players.rpc(connected_players)
 	giocatori_cambiati.emit(connected_players)
+	# Notifichiamo tutti della lista aggiornata
+	_notify_players_list()
 
 # Il client chiama questa appena connesso per mandarci i suoi dati
 # get_remote_sender_id() ci dice quale peer enet l'ha chiamata
@@ -58,10 +60,24 @@ func introduce_yourself(player_data: Dictionary):
 	var player = PlayerInfoDto.from_dict_to_dto(player_data)
 	players[enet_id] = player
 	D.normal("Giocatore presentato: %s (player_id=%s, enet_id=%d)" % [player.player_name, player.player_id, enet_id])
+	# Aggiorniamo la lista per tutti appena qualcuno si presenta
+	_notify_players_list()
+
+# Costruisce la lista e la manda a tutti i client
+func _notify_players_list():
+	var list = []
+	for enet_id in players:
+		list.append(players[enet_id].from_dto_to_dict())
+	update_players_list.rpc(list)
 
 # Dichiarata anche qui ma eseguita solo nel client
 @rpc("authority", "reliable")
 func update_players(_count: int):
+	pass
+
+# Dichiarata anche qui ma eseguita solo nel client
+@rpc("authority", "reliable")
+func update_players_list(_list: Array):
 	pass
 
 func _process(_delta):

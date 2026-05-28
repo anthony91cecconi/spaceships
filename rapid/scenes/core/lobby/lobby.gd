@@ -2,7 +2,10 @@ extends CanvasLayer
 
 var server_data: ServerDataDto
 
-@onready var label_giocatori: Label = $LabelGiocatori  # es. "Giocatori: 3/100"
+@onready var player_list : Control = $HBoxContainer/ScrollContainer/PlayerList
+@onready var label_giocatori: Label = $LabelGiocatori
+var player_card : String = "res://scenes/core/lobby/assets/components/player_card/player_card.tscn"
+
 
 func _ready():
 	Network.lobby_aggiornata.connect(_on_lobby_aggiornata)

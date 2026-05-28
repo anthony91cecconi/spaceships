@@ -1,6 +1,7 @@
 extends Node
 
 signal lobby_aggiornata(count: int)
+signal lobby_lista_aggiornata(list: Array)
 
 var _peer: ENetMultiplayerPeer = null
 
@@ -33,7 +34,12 @@ func _on_server_disconnected():
 func introduce_yourself(_player_data: Dictionary):
 	pass
 
-# Il server chiama questa su tutti i client quando il numero di giocatori cambia
+# Il server chiama questa su tutti i client quando il numero cambia
 @rpc("authority", "reliable")
 func update_players(count: int):
 	lobby_aggiornata.emit(count)
+
+# Il server chiama questa su tutti i client quando la lista cambia
+@rpc("authority", "reliable")
+func update_players_list(list: Array):
+	lobby_lista_aggiornata.emit(list)

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bmcik2jlnxkm"]
+
+[ext_resource type="Script" uid="uid://d2w3m2h34471p" path="res://scenes/core/lobby/assets/components/player_card/player_card.gd" id="1_kgg1g"]
+[ext_resource type="Texture2D" uid="uid://dxfi3uj5bp8ky" path="res://scenes/core/lobby/assets/imgs/bk-card.png" id="1_pffro"]
+
+[node name="PlayerCard" type="Control" unique_id=407328766]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kgg1g")
+
+[node name="BkCard" type="TextureRect" parent="." unique_id=272970080]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pffro")
+
+[node name="LabelName" type="Label" parent="." unique_id=1319084447]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -571.0
+offset_top = -324.5
+offset_right = 571.0
+offset_bottom = 324.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
