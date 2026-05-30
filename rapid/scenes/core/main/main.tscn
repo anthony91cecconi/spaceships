@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dhg6fsxy8betq" path="res://scenes/core/main/main.gd" id="1_bp03x"]
 [ext_resource type="Texture2D" uid="uid://cthdtwpp03423" path="res://scenes/core/main/assets/logo.jpeg" id="1_s6640"]
+[ext_resource type="Texture2D" uid="uid://7u3i566fgvur" path="res://assets/icons/buttons/update.png" id="3_wtb6v"]
+[ext_resource type="Texture2D" uid="uid://84ikk3wady0g" path="res://assets/icons/buttons/skipupdate.png" id="4_q4nr1"]
 
 [node name="Main" type="CanvasLayer" unique_id=813063469]
 script = ExtResource("1_bp03x")
@@ -35,26 +37,26 @@ offset_bottom = -0.21600151
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1833735397]
 
-[node name="Button" type="Button" parent="." unique_id=1871554919]
+[node name="UpdateButon" type="TextureButton" parent="." unique_id=311856501]
 anchors_preset = -1
-anchor_left = 0.119
-anchor_top = 0.1
-anchor_right = 0.16900001
-anchor_bottom = 0.148
-offset_left = -0.08799744
-offset_top = 0.19999695
-offset_right = 0.3119812
-offset_bottom = 0.09600067
-text = "ignore"
+anchor_left = 0.56100005
+anchor_top = 0.326
+anchor_right = 0.648
+anchor_bottom = 0.48000002
+offset_left = -0.2720337
+offset_top = -0.2480011
+offset_right = -0.49597168
+offset_bottom = -0.040008545
+texture_normal = ExtResource("3_wtb6v")
 
-[node name="Button2" type="Button" parent="." unique_id=1586261908]
+[node name="EnterButton" type="TextureButton" parent="." unique_id=727771176]
 anchors_preset = -1
-anchor_left = 0.024
-anchor_top = 0.102000006
-anchor_right = 0.08800001
-anchor_bottom = 0.15
-offset_left = 0.35199928
-offset_top = -0.09600067
-offset_right = -0.37600708
-offset_bottom = -0.20000458
-text = "upgrade"
+anchor_left = 0.35900003
+anchor_top = 0.324
+anchor_right = 0.44500002
+anchor_bottom = 0.47800002
+offset_left = -0.5680237
+offset_top = 0.04800415
+offset_right = 0.35998535
+offset_bottom = 0.25598145
+texture_normal = ExtResource("4_q4nr1")

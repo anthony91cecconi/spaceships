@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cqymsugxndl6e"]
+
+[ext_resource type="Script" uid="uid://diahvnvmvif1j" path="res://scenes/core/login/assets/components/custom/custom_player.gd" id="1_qc4a4"]
+
+[node name="CustomPlayer" type="Control" unique_id=773812981]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qc4a4")
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1773255543]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.5
+offset_top = -255.0
+offset_right = 108.5
+offset_bottom = 259.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1410497602]
+layout_mode = 2
+text = "CREA PLAYER OCCASIONALE"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer" unique_id=595643061]
+layout_mode = 2
+placeholder_text = "NAME"
+alignment = 1
+max_length = 10
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=256725310]
+layout_mode = 2
+text = "SALVA"
+
+[node name="ErrorLabel1" type="Label" parent="VBoxContainer" unique_id=1921588486]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7254902, 0, 0, 1)
+horizontal_alignment = 1

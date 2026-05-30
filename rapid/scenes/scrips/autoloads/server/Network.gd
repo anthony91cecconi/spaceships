@@ -43,3 +43,10 @@ func update_players(count: int):
 @rpc("authority", "reliable")
 func update_players_list(list: Array):
 	lobby_lista_aggiornata.emit(list)
+
+
+func log_off() -> void:
+	if _peer:
+		multiplayer.multiplayer_peer = null
+		_peer = null
+		D.normal("Network: disconnesso dal server")

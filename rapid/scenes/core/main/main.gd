@@ -1,14 +1,14 @@
 extends CanvasLayer
 
-const CURRENT_VERSION = "0.0.7"
+const CURRENT_VERSION = "0.0.8"
 const VERSION_CHECK_URL_GATEWAY = "http://93.38.52.145:8090/servers/version"
 const VERSION_CHECK_URL_GITHUB = "https://raw.githubusercontent.com/anthony91cecconi/rapid/refs/heads/main/version.json"
 
 @onready var http_request = $HTTPRequest
 @onready var progress_bar = $ProgressBar
 @onready var info_label = $Label
-@onready var ignore_button : Button = $Button
-@onready var upgrade_button : Button = $Button2
+@onready var ignore_button : TextureButton = $EnterButton
+@onready var upgrade_button : TextureButton = $UpdateButon
 
 var download_url = ""
 var is_downloading = false

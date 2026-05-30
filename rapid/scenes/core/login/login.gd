@@ -1,24 +1,26 @@
 extends CanvasLayer
-@onready var new_name : LineEdit = $HBoxContainer/Custom/VBoxContainer/LineEdit
-@onready var error_label_1 : Label = $HBoxContainer/Custom/VBoxContainer/ErrorLabel1
 
-# Called when the node enters the scene tree for the first time.
+@onready var tab_container = $HBoxContainer/Custom/TabContainer
+@onready var custom_player = $HBoxContainer/Custom/TabContainer/CustomPlayer
+@onready var scrap_byte_games_login = $HBoxContainer/Custom/TabContainer/ScrapByteGamesLogin
+@onready var scrap_byte_btn : TextureButton = $HBoxContainer/Login/VBoxContainer/Control/HBoxContainer/ScrapByteGames
+@onready var custom_player_btn : TextureButton = $HBoxContainer/Login/VBoxContainer/Control/HBoxContainer/CustomPlayerButton
+
 func _ready() -> void:
-	error_label_1.text = ""
-	
+	tab_container.tabs_visible = false
+	_on_custom_player_button_pressed()
 
-func _on_button_pressed() -> void:
-	if new_name.text.is_empty():
-		error_label_1.show()
-		error_label_1.text = "nessun nome inserito"
-		return
-	PlayerManager.create_custom_player(new_name.text)
-	get_tree().change_scene_to_file(SceneManager.HOME)
+func _release_all_focus() -> void:
+	scrap_byte_btn.release_focus()
+	custom_player_btn.release_focus()
 
-func _on_line_edit_text_change_rejected(rejected_substring: String) -> void:
-		error_label_1.show()
-		error_label_1.text = "nome troppo lungo"
+func _on_scrap_byte_games_pressed() -> void:
+	tab_container.current_tab = 1
+	_release_all_focus()
+	scrap_byte_btn.grab_focus() 
 
-
-func _on_line_edit_text_changed(new_text: String) -> void:
-	error_label_1.text = ""
+# Pulsante Custom Player / Guest (Va al Tab 0)
+func _on_custom_player_button_pressed() -> void:
+	tab_container.current_tab = 0
+	_release_all_focus()
+	custom_player_btn.grab_focus() 

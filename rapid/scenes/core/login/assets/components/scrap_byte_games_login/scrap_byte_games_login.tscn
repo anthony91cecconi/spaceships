@@ -1,0 +1,224 @@
+[gd_scene format=3 uid="uid://b01my2q52olwq"]
+
+[ext_resource type="Texture2D" uid="uid://dyotpv68eoawg" path="res://assets/icons/ScrapByteGames/ScrapButeGamesmini.png" id="1_2qsx0"]
+[ext_resource type="Script" uid="uid://c0vbx3n10wbdw" path="res://scenes/core/login/assets/components/scrap_byte_games_login/scrap_byte_games_login.gd" id="1_ei0pn"]
+[ext_resource type="Texture2D" uid="uid://bn5jbj4gcs3km" path="res://assets/buttons/rettangle_button/rettangle-nutton-normal.png" id="2_mb2wv"]
+[ext_resource type="Texture2D" uid="uid://cf5qqebln25y6" path="res://assets/buttons/rettangle_button/rettangle-nutton-pressed.png" id="3_ei0pn"]
+[ext_resource type="Texture2D" uid="uid://j1iiv8wmpxo7" path="res://assets/buttons/rettangle_button/rettangle-nutton-hover.png" id="4_i3twm"]
+[ext_resource type="Texture2D" uid="uid://dflhoduxq27ml" path="res://assets/buttons/rettangle_button/rettangle-nutton-disabled.png" id="5_2mrel"]
+
+[node name="ScrapByteGamesLogin" type="ScrollContainer" unique_id=456165653]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ei0pn")
+metadata/_tab_index = 1
+
+[node name="Control" type="Control" parent="." unique_id=399823264]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=150117202]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.052
+anchor_top = 0.039
+anchor_right = 0.93600005
+anchor_bottom = 0.938
+offset_left = 0.09600067
+offset_top = -0.27200127
+offset_right = -0.27209473
+offset_bottom = 0.17596436
+
+[node name="Control" type="Control" parent="Control/VBoxContainer" unique_id=825584444]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/Control" unique_id=141649149]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2qsx0")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=1195352244]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="LoginButton" type="TextureButton" parent="Control/VBoxContainer/HBoxContainer" unique_id=1002991046]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+texture_normal = ExtResource("2_mb2wv")
+texture_pressed = ExtResource("3_ei0pn")
+texture_hover = ExtResource("4_i3twm")
+texture_disabled = ExtResource("5_2mrel")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer/LoginButton" unique_id=1559937638]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.51149553, 0.42364126, 0.30191392, 1)
+text = "LOGIN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RegisterButton" type="TextureButton" parent="Control/VBoxContainer/HBoxContainer" unique_id=1858900330]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+texture_normal = ExtResource("2_mb2wv")
+texture_pressed = ExtResource("3_ei0pn")
+texture_hover = ExtResource("4_i3twm")
+texture_disabled = ExtResource("5_2mrel")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer/HBoxContainer/RegisterButton" unique_id=565305913]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.51149553, 0.42364126, 0.30191392, 1)
+text = "REGISTER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEditsContainer" type="VBoxContainer" parent="Control/VBoxContainer" unique_id=492402874]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/LineEditsContainer" unique_id=997121535]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/LineEditsContainer/HBoxContainer" unique_id=530078781]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "USER :"
+horizontal_alignment = 2
+
+[node name="Control" type="Control" parent="Control/VBoxContainer/LineEditsContainer/HBoxContainer" unique_id=1907995534]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="LineEditUser" type="LineEdit" parent="Control/VBoxContainer/LineEditsContainer/HBoxContainer" unique_id=162236597]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer/LineEditsContainer" unique_id=218897429]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/LineEditsContainer/HBoxContainer2" unique_id=1109431231]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "EMAIL :"
+horizontal_alignment = 2
+
+[node name="Control" type="Control" parent="Control/VBoxContainer/LineEditsContainer/HBoxContainer2" unique_id=560482956]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="LineEditEmail" type="LineEdit" parent="Control/VBoxContainer/LineEditsContainer/HBoxContainer2" unique_id=1371097801]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/VBoxContainer/LineEditsContainer" unique_id=78059172]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/LineEditsContainer/HBoxContainer3" unique_id=1975338101]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PASSWORD :"
+horizontal_alignment = 2
+
+[node name="Control" type="Control" parent="Control/VBoxContainer/LineEditsContainer/HBoxContainer3" unique_id=861287633]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="LineEditPassword" type="LineEdit" parent="Control/VBoxContainer/LineEditsContainer/HBoxContainer3" unique_id=280130664]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/VBoxContainer/LineEditsContainer" unique_id=1011831810]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/LineEditsContainer/HBoxContainer4" unique_id=2134909316]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "REPEAT PASSWORD :"
+horizontal_alignment = 2
+
+[node name="Control" type="Control" parent="Control/VBoxContainer/LineEditsContainer/HBoxContainer4" unique_id=294086061]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="LineEditRepeatPassword" type="LineEdit" parent="Control/VBoxContainer/LineEditsContainer/HBoxContainer4" unique_id=1131953766]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ErrorLabel" type="Label" parent="Control/VBoxContainer/LineEditsContainer" unique_id=68552242]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Control/VBoxContainer/LineEditsContainer" unique_id=1638289306]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="SaveButton" type="TextureButton" parent="Control/VBoxContainer/LineEditsContainer/HBoxContainer5" unique_id=1762817282]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+texture_normal = ExtResource("2_mb2wv")
+texture_pressed = ExtResource("3_ei0pn")
+texture_hover = ExtResource("4_i3twm")
+texture_disabled = ExtResource("5_2mrel")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/LineEditsContainer/HBoxContainer5/SaveButton" unique_id=686594463]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.51149553, 0.42364126, 0.30191392, 1)
+text = "SAVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/LoginButton" to="." method="_on_login_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/RegisterButton" to="." method="_on_register_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/LineEditsContainer/HBoxContainer5/SaveButton" to="." method="_on_save_button_pressed"]

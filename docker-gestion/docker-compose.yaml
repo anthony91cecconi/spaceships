@@ -18,3 +18,32 @@ services:
     container_name: rapid-server
     restart: always
     network_mode: host
+
+  auth-service:
+    image: localhost/auth-service:latest
+    container_name: auth-service
+    restart: always
+    network_mode: host
+    environment:
+      DB_HOST: 127.0.0.1
+      DB_NAME: authdb
+      DB_USER: authuser
+      DB_PASSWORD: Antmardanmar
+      JWT_SECRET: X7f9W2kQzP4mL1vB8nR9tS3jK5cX6zY1
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+
+  auth-mysql:
+    image: mysql:8.2
+    container_name: auth-mysql
+    restart: always
+    network_mode: host
+    environment:
+      MYSQL_ROOT_PASSWORD: Antmardanmar@2026
+      MYSQL_DATABASE: authdb
+      MYSQL_USER: authuser
+      MYSQL_PASSWORD: Antmardanmar
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:

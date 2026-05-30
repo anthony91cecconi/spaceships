@@ -2,6 +2,18 @@
 
 [ext_resource type="Script" uid="uid://hid4tlib4f81" path="res://scenes/core/login/login.gd" id="1_ht4v8"]
 [ext_resource type="Texture2D" uid="uid://b454kd3wkhyxi" path="res://scenes/core/login/assets/login.png" id="1_vc868"]
+[ext_resource type="PackedScene" uid="uid://cqymsugxndl6e" path="res://scenes/core/login/assets/components/custom/custom_player.tscn" id="3_uj4kf"]
+[ext_resource type="PackedScene" uid="uid://b01my2q52olwq" path="res://scenes/core/login/assets/components/scrap_byte_games_login/scrap_byte_games_login.tscn" id="4_q2oxx"]
+[ext_resource type="Texture2D" uid="uid://bfufr4ttdhfkt" path="res://assets/buttons/ScrapByteGames/ScrapByte_Games_logo_normal.png" id="5_hrik5"]
+[ext_resource type="Texture2D" uid="uid://bd5b6x3bxry0k" path="res://assets/buttons/ScrapByteGames/ScrapByte_Games_logo_pressed.png" id="6_0c5ex"]
+[ext_resource type="Texture2D" uid="uid://4aweic8pbp4l" path="res://assets/buttons/ScrapByteGames/ScrapByte_Games_logo_hover.png" id="7_3rukp"]
+[ext_resource type="Texture2D" uid="uid://7kdbye8ntued" path="res://assets/buttons/ScrapByteGames/ScrapByte_Games_logo_disabled.png" id="8_ottej"]
+[ext_resource type="Texture2D" uid="uid://ctj8s3k173o1s" path="res://assets/buttons/ScrapByteGames/ScrapByte_Games_logo_focus.png" id="9_3iyfy"]
+[ext_resource type="Texture2D" uid="uid://dye6ijkjhfivj" path="res://assets/buttons/custom_player/custom_player_normal.png" id="10_ac6hf"]
+[ext_resource type="Texture2D" uid="uid://cy16hl7drplnk" path="res://assets/buttons/custom_player/custom_player_pressed.png" id="11_c8ecb"]
+[ext_resource type="Texture2D" uid="uid://clcrgmkn3ceil" path="res://assets/buttons/custom_player/custom_player_hover.png" id="12_37ehy"]
+[ext_resource type="Texture2D" uid="uid://kmhbod3d50or" path="res://assets/buttons/custom_player/custom_player_disabledl.png" id="13_w2o1w"]
+[ext_resource type="Texture2D" uid="uid://c35iwgkdwniec" path="res://assets/buttons/custom_player/custom_player_focus.png" id="14_dt4nx"]
 
 [node name="Login" type="CanvasLayer" unique_id=1381712519]
 script = ExtResource("1_ht4v8")
@@ -39,49 +51,21 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.25490198, 0.25490198, 0.25490198, 0.3764706)
 
-[node name="Label" type="Label" parent="HBoxContainer/Custom" unique_id=145024350]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Custom" unique_id=1363454027]
+[node name="TabContainer" type="TabContainer" parent="HBoxContainer/Custom" unique_id=517499723]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = -274.5
-offset_bottom = 274.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
+current_tab = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/Custom/VBoxContainer" unique_id=2005454727]
+[node name="CustomPlayer" parent="HBoxContainer/Custom/TabContainer" unique_id=773812981 instance=ExtResource("3_uj4kf")]
+visible = false
 layout_mode = 2
-text = "CREA PLAYER OCCASIONALE"
 
-[node name="LineEdit" type="LineEdit" parent="HBoxContainer/Custom/VBoxContainer" unique_id=213201874]
+[node name="ScrapByteGamesLogin" parent="HBoxContainer/Custom/TabContainer" unique_id=447091139 instance=ExtResource("4_q2oxx")]
 layout_mode = 2
-placeholder_text = "NAME"
-alignment = 1
-max_length = 10
-context_menu_enabled = false
-emoji_menu_enabled = false
-shortcut_keys_enabled = false
-middle_mouse_paste_enabled = false
-selecting_enabled = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-
-[node name="Button" type="Button" parent="HBoxContainer/Custom/VBoxContainer" unique_id=1583444769]
-layout_mode = 2
-text = "SALVA"
-
-[node name="ErrorLabel1" type="Label" parent="HBoxContainer/Custom/VBoxContainer" unique_id=1952208530]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.7254902, 0, 0, 1)
-horizontal_alignment = 1
 
 [node name="Login" type="Control" parent="HBoxContainer" unique_id=2116661688]
 layout_mode = 2
@@ -116,6 +100,40 @@ layout_mode = 2
 text = "NESSUN SERVIZIO DISPONIBILE"
 horizontal_alignment = 1
 
-[connection signal="text_change_rejected" from="HBoxContainer/Custom/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_change_rejected"]
-[connection signal="text_changed" from="HBoxContainer/Custom/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
-[connection signal="pressed" from="HBoxContainer/Custom/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="Control" type="Control" parent="HBoxContainer/Login/VBoxContainer" unique_id=1433724237]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Login/VBoxContainer/Control" unique_id=787099913]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ScrapByteGames" type="TextureButton" parent="HBoxContainer/Login/VBoxContainer/Control/HBoxContainer" unique_id=1836478915]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = ExtResource("5_hrik5")
+texture_pressed = ExtResource("6_0c5ex")
+texture_hover = ExtResource("7_3rukp")
+texture_disabled = ExtResource("8_ottej")
+texture_focused = ExtResource("9_3iyfy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CustomPlayerButton" type="TextureButton" parent="HBoxContainer/Login/VBoxContainer/Control/HBoxContainer" unique_id=2063296704]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = ExtResource("10_ac6hf")
+texture_pressed = ExtResource("11_c8ecb")
+texture_hover = ExtResource("12_37ehy")
+texture_disabled = ExtResource("13_w2o1w")
+texture_focused = ExtResource("14_dt4nx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="HBoxContainer/Login/VBoxContainer/Control/HBoxContainer/ScrapByteGames" to="." method="_on_scrap_byte_games_pressed"]
+[connection signal="pressed" from="HBoxContainer/Login/VBoxContainer/Control/HBoxContainer/CustomPlayerButton" to="." method="_on_custom_player_button_pressed"]
