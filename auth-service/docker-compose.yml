@@ -37,7 +37,7 @@ services:
       DB_NAME: ${DB_NAME:-authdb}
       DB_USER: ${DB_USER:-authuser}
       DB_PASSWORD: ${DB_PASSWORD:-authpassword}
-      JWT_SECRET: ${JWT_SECRET:-ChangeThisSecretInProductionItMustBeAtLeast32CharactersLong!}
+      JWT_SECRET: X7f9W2kQzP4mL1vB8nR9tS3jK5cX6zY1mNpQrStUvWx
       GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
     ports:
       - "8080:8080"
