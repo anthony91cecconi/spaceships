@@ -29,7 +29,7 @@ services:
       DB_NAME: authdb
       DB_USER: authuser
       DB_PASSWORD: Antmardanmar
-      JWT_SECRET: X7f9W2kQzP4mL1vB8nR9tS3jK5cX6zY1
+      JWT_SECRET: X7f9W2kQzP4mL1vB8nR9tS3jK5cX6zY1mNpQrStUvWx
       GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
 
   auth-mysql:
