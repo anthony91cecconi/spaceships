@@ -90,3 +90,20 @@ func _process(_delta):
 		var response = "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nConnection: close\r\nContent-Length: 2\r\n\r\nOK"
 		conn.put_data(response.to_utf8_buffer())
 		conn.disconnect_from_host()
+
+
+# Il client chiama questa per mandare un messaggio in chat
+@rpc("any_peer", "reliable")
+func send_message(text: String):
+	var enet_id = multiplayer.get_remote_sender_id()
+	# Recuperiamo il nome del mittente dal dizionario
+	var username = players[enet_id].player_name if players.has(enet_id) else "sconosciuto"
+	var timestamp = Time.get_time_string_from_system()
+	D.normal("Chat [%s] %s: %s" % [timestamp, username, text])
+	# Broadcastiamo a tutti i client
+	receive_message.rpc(username, text, timestamp)
+
+# Dichiarata qui ma eseguita solo nel client
+@rpc("authority", "reliable")
+func receive_message(_username: String, _text: String, _timestamp: String):
+	pass

@@ -40,6 +40,31 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Chat" type="Control" parent="HBoxContainer/Control" unique_id=453201194]
+[node name="ScrolChat" type="ScrollContainer" parent="HBoxContainer/Control" unique_id=471787683]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="ContainerChat" type="Control" parent="HBoxContainer/Control/ScrolChat" unique_id=974213075]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control2" type="Control" parent="HBoxContainer/Control" unique_id=664634474]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="SendButton" type="Button" parent="HBoxContainer/Control/Control2" unique_id=159704253]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "send
+"
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/Control/Control2" unique_id=1698215996]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.120000005
+anchor_right = 0.99000007
+anchor_bottom = 0.62
+offset_left = 0.11999512
+offset_right = -0.26000977

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bbg0s4g0s7cc8"]
+
+[ext_resource type="Script" uid="uid://c81ikmk4l6e82" path="res://scenes/core/lobby/assets/components/chat_text/chat_text.gd" id="1_b3qu2"]
+
+[node name="ChatText" type="VBoxContainer" unique_id=1691473396]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b3qu2")
+
+[node name="PlayerLabel" type="Label" parent="." unique_id=1579018068]
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="." unique_id=2121767611]
+layout_mode = 2
+
+[node name="RichTextLabelCointent" type="RichTextLabel" parent="." unique_id=608002114]
+layout_mode = 2

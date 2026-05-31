@@ -1,6 +1,6 @@
 extends Node
 
-const AUTH_URL = "http://93.38.52.145:8081/auth"
+const AUTH_URL = "http://93.38.52.145:8089/auth"
 
 signal login_riuscito
 signal login_fallito(error: String)
@@ -36,13 +36,11 @@ func _on_request_completed(_result, response_code, _headers, body):
 	match _last_action:
 		"login":
 			if response_code == 200:
-				# Salviamo il token e i dati utente nel PlayerManager
-				PlayerManager.jwt_token = data.get("token", "")
-				PlayerManager.player_info = PlayerInfoDto.new(
+				PlayerManager.create_authenticated_player(
 					data["user"]["username"],
-					str(data["user"]["id"])
+					str(data["user"]["id"]),
+					data.get("token", "")
 				)
-				D.success("Login riuscito: " + PlayerManager.player_info.player_name)
 				login_riuscito.emit()
 			else:
 				var error = data.get("message", "Errore sconosciuto")

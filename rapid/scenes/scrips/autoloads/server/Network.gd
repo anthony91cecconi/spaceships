@@ -50,3 +50,19 @@ func log_off() -> void:
 		multiplayer.multiplayer_peer = null
 		_peer = null
 		D.normal("Network: disconnesso dal server")
+
+signal messaggio_ricevuto(username: String, text: String, timestamp: String)
+
+# Chiamata dal client per mandare un messaggio
+func invia_messaggio(text: String) -> void:
+	send_message.rpc_id(1, text)
+
+# Dichiarata qui ma non fa nulla — serve a Godot per sapere che esiste
+@rpc("any_peer", "reliable")
+func send_message(_text: String):
+	pass
+
+# Il server chiama questa su tutti i client
+@rpc("authority", "reliable")
+func receive_message(username: String, text: String, timestamp: String):
+	messaggio_ricevuto.emit(username, text, timestamp)

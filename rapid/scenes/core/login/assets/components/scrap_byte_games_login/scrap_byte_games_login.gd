@@ -1,4 +1,4 @@
-extends Control
+extends ScrollContainer
 
 @onready var nick_name: LineEdit = $Control/VBoxContainer/LineEditsContainer/HBoxContainer/LineEditUser
 @onready var email: LineEdit = $Control/VBoxContainer/LineEditsContainer/HBoxContainer2/LineEditEmail
