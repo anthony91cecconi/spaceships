@@ -20,7 +20,7 @@ WORKDIR /app
 RUN groupadd -r appgroup && useradd -r -g appgroup appuser
 
 # Copia il jar generato nello stage precedente
-COPY --from=builder /build/target/auth-service-1.0.0.jar app.jar
+COPY --from=builder /build/target/auth-service-1.0.1.jar app.jar
 
 RUN chown appuser:appgroup app.jar
 
