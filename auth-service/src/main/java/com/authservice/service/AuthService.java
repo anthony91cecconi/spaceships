@@ -2,6 +2,7 @@ package com.authservice.service;
 
 import com.authservice.dto.*;
 import com.authservice.entity.AuthProvider;
+import com.authservice.entity.RefreshToken;
 import com.authservice.entity.User;
 import com.authservice.repository.UserRepository;
 import com.authservice.security.GoogleTokenVerifier;
@@ -23,6 +24,7 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final GoogleTokenVerifier googleTokenVerifier;
+    private final RefreshTokenService refreshTokenService;
 
     @Transactional
     public AuthResponse register(RegisterRequest request) {
@@ -49,7 +51,7 @@ public class AuthService {
 
         if (user.getProvider() != AuthProvider.LOCAL) {
             throw new BadCredentialsException(
-                "Account registrato tramite " + user.getProvider() + ". Usa il login corrispondente."
+                    "Account registrato tramite " + user.getProvider() + ". Usa il login corrispondente."
             );
         }
 
@@ -77,14 +79,12 @@ public class AuthService {
             name = email.split("@")[0];
         }
 
-        // Cerca prima per Google subject ID, poi per email
         User user = userRepository.findByProviderIdAndProvider(googleSubject, AuthProvider.GOOGLE)
                 .orElseGet(() -> userRepository.findByEmail(email)
                         .map(existing -> {
-                            // Utente esistente con stessa email ma provider diverso
                             if (existing.getProvider() != AuthProvider.GOOGLE) {
                                 throw new IllegalArgumentException(
-                                    "Email già registrata con metodo classico. Usa email e password."
+                                        "Email già registrata con metodo classico. Usa email e password."
                                 );
                             }
                             return existing;
@@ -92,7 +92,6 @@ public class AuthService {
                         .orElse(null));
 
         if (user == null) {
-            // Primo accesso Google: crea l'utente
             final String finalName = name;
             user = User.builder()
                     .username(finalName)
@@ -126,8 +125,7 @@ public class AuthService {
 
         try {
             Long userId = jwtService.extractUserId(token);
-            User user = userRepository.findById(userId)
-                    .orElse(null);
+            User user = userRepository.findById(userId).orElse(null);
 
             if (user == null) {
                 return ValidateResponse.builder()
@@ -153,10 +151,56 @@ public class AuthService {
         }
     }
 
-    private AuthResponse buildAuthResponse(User user) {
-        String token = jwtService.generateToken(user);
+    @Transactional
+    public AuthResponse refresh(String rawToken) {
+        RefreshToken refreshToken = refreshTokenService.trova(rawToken)
+                .orElseThrow(() -> new BadCredentialsException("Refresh token non valido"));
+
+        if (refreshToken.isExpired()) {
+            refreshTokenService.invalida(refreshToken.getUser());
+            throw new BadCredentialsException("Refresh token scaduto, effettua nuovamente il login");
+        }
+
+        User user = refreshToken.getUser();
+        String newJwt = jwtService.generateToken(user);
+
+        // Sliding expiration — se mancano meno di 7 giorni rinnova anche il refresh token
+        String newRefreshToken = rawToken;
+        if (refreshToken.isNearExpiry()) {
+            RefreshToken rinnovato = refreshTokenService.rinnova(refreshToken);
+            newRefreshToken = rinnovato.getToken();
+            log.info("Refresh token rinnovato per utente id={}", user.getId());
+        }
+
         return AuthResponse.builder()
-                .token(token)
+                .token(newJwt)
+                .refreshToken(newRefreshToken)
+                .tokenType("Bearer")
+                .expiresIn(jwtService.getExpirationMs())
+                .user(AuthResponse.UserInfo.builder()
+                        .id(user.getId())
+                        .username(user.getUsername())
+                        .email(user.getEmail())
+                        .provider(user.getProvider().name())
+                        .build())
+                .build();
+    }
+
+    @Transactional
+    public void logout(String rawToken) {
+        refreshTokenService.trova(rawToken).ifPresent(rt -> {
+            refreshTokenService.invalida(rt.getUser());
+            log.info("Logout utente id={}", rt.getUser().getId());
+        });
+    }
+
+    private AuthResponse buildAuthResponse(User user) {
+        String jwt = jwtService.generateToken(user);
+        RefreshToken refreshToken = refreshTokenService.crea(user);
+
+        return AuthResponse.builder()
+                .token(jwt)
+                .refreshToken(refreshToken.getToken())
                 .tokenType("Bearer")
                 .expiresIn(jwtService.getExpirationMs())
                 .user(AuthResponse.UserInfo.builder()

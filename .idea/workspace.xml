@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfe74f9b-85c9-4705-8a95-5e8ded6dd231" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/rapidgateway/gateway/controller/GatewayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/rapidgateway/gateway/controller/GatewayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/rapidgateway/gateway/service/ServerRegistryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/rapidgateway/gateway/service/ServerRegistryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rapid/areatest/player/asset/sprites/bot-left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rapid/areatest/player/asset/sprites/bot-left.png.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rapid/export_presets.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/rapid/export_presets.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rapid/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/rapid/project.godot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rapid/scenes/core/home/assets/components/server/server.gd" beforeDir="false" afterPath="$PROJECT_DIR$/rapid/scenes/core/home/assets/components/server/server.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rapid/scenes/core/home/assets/components/server/server.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/rapid/scenes/core/home/assets/components/server/server.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rapid/scenes/core/home/home.gd" beforeDir="false" afterPath="$PROJECT_DIR$/rapid/scenes/core/home/home.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rapid/scenes/core/home/home.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/rapid/scenes/core/home/home.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rapid/scenes/core/main/main.gd" beforeDir="false" afterPath="$PROJECT_DIR$/rapid/scenes/core/main/main.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rapidserver/main.gd" beforeDir="false" afterPath="$PROJECT_DIR$/rapidserver/main.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relises/rapid-0.0.1.apk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/relises/spaceships-0.0.7.apk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/relises/spaceships-0.0.8.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid/scenes/core/lobby/assets/components/chat_text/chat_text.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/rapid/scenes/core/lobby/assets/components/chat_text/chat_text.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rapid/scenes/core/lobby/lobby.gd" beforeDir="false" afterPath="$PROJECT_DIR$/rapid/scenes/core/lobby/lobby.gd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,14 +24,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/spaceships&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/User/Desktop/spaceships/auth-service"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-const CURRENT_VERSION = "0.0.8"
+const CURRENT_VERSION = "0.0.9"
 const VERSION_CHECK_URL_GATEWAY = "http://93.38.52.145:8090/servers/version"
 const VERSION_CHECK_URL_GITHUB = "https://raw.githubusercontent.com/anthony91cecconi/rapid/refs/heads/main/version.json"
 
@@ -128,14 +128,13 @@ func _start_automatic_download():
 		ignore_button.visible = true
 
 func _start_normal_game():
-	if _auto_login():
-		get_tree().change_scene_to_file("res://scenes/core/home/home.tscn")
-		return
-	
+	# Connette i segnali di Auth prima di tentare l'auto login
+	Auth.auto_login_riuscito.connect(_on_auto_login_riuscito)
+	Auth.auto_login_fallito.connect(_on_auto_login_fallito)
+	Auth.refresh()
+
+func _on_auto_login_riuscito():
+	get_tree().change_scene_to_file("res://scenes/core/home/home.tscn")
+
+func _on_auto_login_fallito():
 	get_tree().change_scene_to_file(SceneManager.LOGIN)
-
-
-
-func _auto_login() -> bool:
-	#TODO: aggiungere loggica del login automatico quando esistera il sistema di account
-	return false
